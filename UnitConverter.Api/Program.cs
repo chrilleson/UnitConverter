@@ -1,7 +1,9 @@
 
 using MediatR;
 using UnitConverter.Api.Features.Handlers;
+using UnitConverter.Api.Features.Models;
 using UnitConverter.Api.Features.Models.Enums;
+using UnitConverter.Api.Features.Requests;
 using UnitConverter.Api.Features.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,6 +15,8 @@ builder.Services.AddSingleton(typeof(IUnitConverter<Volume>), typeof(UnitConvert
 
 builder.Services.AddMediatR(typeof(Program).Assembly);
 
+builder.Services.AddScoped(typeof(IRequestHandler<LengthUnitRequest, UnitModel>), typeof(LengthUnitHandler));
+builder.Services.AddScoped(typeof(IRequest<UnitModel>), typeof(LengthUnitRequest));
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -31,6 +35,6 @@ app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
-app.MapGet("/randomizer", () => app.Services.GetService<Mediator>()?.Send(UnitRequest.Instance));
+app.MapGet("/length", async (IMediator mediator) => await mediator.Send(LengthUnitRequest.Instance));
 
 app.Run();
