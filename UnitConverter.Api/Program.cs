@@ -1,4 +1,3 @@
-
 using MediatR;
 using UnitConverter.Api.Features.Handlers;
 using UnitConverter.Api.Features.Models;
@@ -17,8 +16,11 @@ builder.Services.AddMediatR(typeof(Program).Assembly);
 
 builder.Services.AddScoped(typeof(IRequestHandler<LengthUnitRequest, UnitModel>), typeof(LengthUnitHandler));
 builder.Services.AddScoped(typeof(IRequestHandler<WeightUnitRequest, UnitModel>), typeof(WeightUnitRequestHandler));
+builder.Services.AddScoped(typeof(IRequestHandler<VolumeUnitRequest, UnitModel>), typeof(VolumeUnitRequestHandler));
 builder.Services.AddScoped(typeof(IRequest<UnitModel>), typeof(LengthUnitRequest));
 builder.Services.AddScoped(typeof(IRequest<UnitModel>), typeof(WeightUnitRequest));
+builder.Services.AddScoped(typeof(IRequest<UnitModel>), typeof(VolumeUnitRequest));
+
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -39,5 +41,6 @@ app.UseAuthorization();
 
 app.MapGet("/length", async (IMediator mediator) => await mediator.Send(LengthUnitRequest.Instance));
 app.MapGet("/weight", async (IMediator mediator) => await mediator.Send(WeightUnitRequest.Instance));
+app.MapGet("/volume", async (IMediator mediator) => await mediator.Send(VolumeUnitRequest.Instance));
 
 app.Run();
