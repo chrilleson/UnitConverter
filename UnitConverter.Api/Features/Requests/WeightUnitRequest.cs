@@ -3,6 +3,7 @@ using UnitConverter.Api.Features.Models;
 
 namespace UnitConverter.Api.Features.Requests;
 
-public class WeightUnitRequest : IRequest<UnitModel>
+public record WeightUnitRequest : IRequest<IEnumerable<UnitModel>>
 {
-    public static readonly WeightUnitRequest Instance = new(); }
+    public static readonly WeightUnitRequest Instance = new();
+}

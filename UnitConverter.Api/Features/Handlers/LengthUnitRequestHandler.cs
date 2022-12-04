@@ -5,16 +5,16 @@ using UnitConverter.Api.Features.Services;
 
 namespace UnitConverter.Api.Features.Handlers;
 
-public class WeightUnitRequestHandler : IRequestHandler<WeightUnitRequest, IEnumerable<UnitModel>>
+public class LengthUnitRequestHandler : IRequestHandler<LengthUnitRequest, IEnumerable<UnitModel>>
 {
-    private readonly IUnitConverter<Weight> _unitConverter;
+    private readonly IUnitConverter<Length> _unitConverter;
 
-    public WeightUnitRequestHandler(IUnitConverter<Weight> unitConverter)
+    public LengthUnitRequestHandler(IUnitConverter<Length> unitConverter)
     {
         _unitConverter = unitConverter;
     }
 
-    public async Task<IEnumerable<UnitModel>> Handle(WeightUnitRequest request, CancellationToken cancellationToken)
+    public async Task<IEnumerable<UnitModel>> Handle(LengthUnitRequest request, CancellationToken cancellationToken)
     {
         var nrOfUnits = new Random().Next(1, 5);
         var units = new List<UnitModel>();

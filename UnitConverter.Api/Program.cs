@@ -13,12 +13,12 @@ builder.Services.AddSingleton(typeof(IUnitConverter<Volume>), typeof(VolumeConve
 
 builder.Services.AddMediatR(typeof(Program).Assembly);
 
-builder.Services.AddScoped(typeof(IRequestHandler<LengthUnitRequest, UnitModel>), typeof(LengthUnitHandler));
-builder.Services.AddScoped(typeof(IRequestHandler<WeightUnitRequest, UnitModel>), typeof(WeightUnitRequestHandler));
-builder.Services.AddScoped(typeof(IRequestHandler<VolumeUnitRequest, UnitModel>), typeof(VolumeUnitRequestHandler));
-builder.Services.AddScoped(typeof(IRequest<UnitModel>), typeof(LengthUnitRequest));
-builder.Services.AddScoped(typeof(IRequest<UnitModel>), typeof(WeightUnitRequest));
-builder.Services.AddScoped(typeof(IRequest<UnitModel>), typeof(VolumeUnitRequest));
+builder.Services.AddScoped(typeof(IRequestHandler<LengthUnitRequest, IEnumerable<UnitModel>>), typeof(LengthUnitRequestHandler));
+builder.Services.AddScoped(typeof(IRequestHandler<WeightUnitRequest, IEnumerable<UnitModel>>), typeof(WeightUnitRequestHandler));
+builder.Services.AddScoped(typeof(IRequestHandler<VolumeUnitRequest, IEnumerable<UnitModel>>), typeof(VolumeUnitRequestHandler));
+builder.Services.AddScoped(typeof(IRequest<IEnumerable<UnitModel>>), typeof(LengthUnitRequest));
+builder.Services.AddScoped(typeof(IRequest<IEnumerable<UnitModel>>), typeof(WeightUnitRequest));
+builder.Services.AddScoped(typeof(IRequest<IEnumerable<UnitModel>>), typeof(VolumeUnitRequest));
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
