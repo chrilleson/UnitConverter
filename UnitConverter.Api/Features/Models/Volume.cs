@@ -10,7 +10,7 @@ public enum Volume
 
 public static class VolumeUtility
 {
-    internal static double ConvertToMilliliter(Volume unitToConvertFrom, double valueToConvert)
+    public static double ConvertToMilliliter(Volume unitToConvertFrom, double valueToConvert)
     {
         return unitToConvertFrom switch
         {
@@ -25,7 +25,7 @@ public static class VolumeUtility
         double ConvertFromLiter(double value) => value / Math.Pow(10, -3);
     }
 
-    internal static double ConvertToCentiliter(Volume unitToConvertFrom, double valueToConvert)
+    public static double ConvertToCentiliter(Volume unitToConvertFrom, double valueToConvert)
     {
         return unitToConvertFrom switch
         {
@@ -40,7 +40,7 @@ public static class VolumeUtility
         double ConvertFromLiter(double value) => value / Math.Pow(10, -2);
     }
 
-    internal static double ConvertToDeciliter(Volume unitToConvertFrom, double valueToConvert)
+    public static double ConvertToDeciliter(Volume unitToConvertFrom, double valueToConvert)
     {
         return unitToConvertFrom switch
         {
@@ -55,7 +55,7 @@ public static class VolumeUtility
         double ConvertFromLiter(double value) => value / Math.Pow(10, -1);
     }
 
-    internal static double ConvertToLiter(Volume unitToConvertFrom, double valueToConvert)
+    public static double ConvertToLiter(Volume unitToConvertFrom, double valueToConvert)
     {
         return unitToConvertFrom switch
         {

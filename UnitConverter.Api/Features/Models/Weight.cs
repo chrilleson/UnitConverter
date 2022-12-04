@@ -11,7 +11,7 @@ public enum Weight
 
 public static class WeightUtility
 {
-    internal static double ConvertToMilligram(Weight unitToConvertFrom, double valueToConvert)
+    public static double ConvertToMilligram(Weight unitToConvertFrom, double valueToConvert)
     {
         return unitToConvertFrom switch
         {
@@ -28,7 +28,7 @@ public static class WeightUtility
         double ConvertFromTon(double value) => value / Math.Pow(10, -9);
     }
 
-    internal static double ConvertToGram(Weight unitToConvertFrom, double valueToConvert)
+    public static double ConvertToGram(Weight unitToConvertFrom, double valueToConvert)
     {
         return unitToConvertFrom switch
         {
@@ -45,7 +45,7 @@ public static class WeightUtility
         double ConvertFromTon(double value) => value / Math.Pow(10, 6);
     }
 
-    internal static double ConvertToHectogram(Weight unitToConvertFrom, double valueToConvert)
+    public static double ConvertToHectogram(Weight unitToConvertFrom, double valueToConvert)
     {
         return unitToConvertFrom switch
         {
@@ -62,7 +62,7 @@ public static class WeightUtility
         double ConvertFromTon(double value) => value / Math.Pow(10, 4);
     }
 
-    internal static double ConvertToKilogram(Weight unitToConvertFrom, double valueToConvert)
+    public static double ConvertToKilogram(Weight unitToConvertFrom, double valueToConvert)
     {
         return unitToConvertFrom switch
         {
@@ -79,7 +79,7 @@ public static class WeightUtility
         double ConvertFromTon(double value) => value / Math.Pow(10, 3);
     }
 
-    internal static double ConvertToTon(Weight unitToConvertFrom, double valueToConvert)
+    public static double ConvertToTon(Weight unitToConvertFrom, double valueToConvert)
     {
         return unitToConvertFrom switch
         {

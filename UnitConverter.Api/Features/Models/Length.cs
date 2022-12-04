@@ -12,7 +12,7 @@ public enum Length
 
 public static class LenghtUtility
 {
-    internal static double ConvertToMillimeter(Length unitToConvertFrom, double valueToConvert)
+    public static double ConvertToMillimeter(Length unitToConvertFrom, double valueToConvert)
     {
         return unitToConvertFrom switch
         {
@@ -31,7 +31,7 @@ public static class LenghtUtility
         double ConvertFromMil(double value) => value / Math.Pow(10, 7);
     }
 
-    internal static double ConvertToCentimeter(Length unitToConvertFrom, double valueToConvert)
+    public static double ConvertToCentimeter(Length unitToConvertFrom, double valueToConvert)
     {
         return unitToConvertFrom switch
         {
@@ -50,7 +50,7 @@ public static class LenghtUtility
         double ConvertFromMil(double value) => value / (10 * Math.Pow(10, 5));
     }
 
-    internal static double ConvertToDecimeter(Length unitToConvertFrom, double valueToConvert)
+    public static double ConvertToDecimeter(Length unitToConvertFrom, double valueToConvert)
     {
         return unitToConvertFrom switch
         {
@@ -69,7 +69,7 @@ public static class LenghtUtility
         double ConvertFromMil(double value) => value / (10 * Math.Pow(10, 4));
     }
 
-    internal static double ConvertToMeter(Length unitToConvertFrom, double valueToConvert)
+    public static double ConvertToMeter(Length unitToConvertFrom, double valueToConvert)
     {
         return unitToConvertFrom switch
         {
@@ -88,7 +88,7 @@ public static class LenghtUtility
         double ConvertFromMil(double value) => value / (10 * Math.Pow(10, 3));
     }
 
-    internal static double ConvertToKilometer(Length unitToConvertFrom, double valueToConvert)
+    public static double ConvertToKilometer(Length unitToConvertFrom, double valueToConvert)
     {
         return unitToConvertFrom switch
         {
@@ -107,7 +107,7 @@ public static class LenghtUtility
         double ConvertFromMil(double value) => value / Math.Pow(10, -1);
     }
 
-    internal static double ConvertToMil(Length unitToConvertFrom, double valueToConvert)
+    public static double ConvertToMil(Length unitToConvertFrom, double valueToConvert)
     {
         return unitToConvertFrom switch
         {
