@@ -21,4 +21,8 @@
         </PackageReference>
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\UnitConverter.Api\UnitConverter.Api.csproj" />
+    </ItemGroup>
+
 </Project>
