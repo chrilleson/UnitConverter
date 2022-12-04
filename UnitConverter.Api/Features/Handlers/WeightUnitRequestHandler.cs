@@ -1,6 +1,5 @@
 ﻿using MediatR;
 using UnitConverter.Api.Features.Models;
-using UnitConverter.Api.Features.Models.Enums;
 using UnitConverter.Api.Features.Requests;
 using UnitConverter.Api.Features.Services;
 
