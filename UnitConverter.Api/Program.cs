@@ -1,16 +1,15 @@
 using MediatR;
 using UnitConverter.Api.Features.Handlers;
 using UnitConverter.Api.Features.Models;
-using UnitConverter.Api.Features.Models.Enums;
 using UnitConverter.Api.Features.Requests;
 using UnitConverter.Api.Features.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddSingleton(typeof(IUnitConverter<Length>), typeof(UnitConverter<Length>));
-builder.Services.AddSingleton(typeof(IUnitConverter<Weight>), typeof(UnitConverter<Weight>));
-builder.Services.AddSingleton(typeof(IUnitConverter<Volume>), typeof(UnitConverter<Volume>));
+builder.Services.AddSingleton(typeof(IUnitConverter<Length>), typeof(LengthConverter));
+builder.Services.AddSingleton(typeof(IUnitConverter<Weight>), typeof(WeightConverter));
+builder.Services.AddSingleton(typeof(IUnitConverter<Volume>), typeof(VolumeConverter));
 
 builder.Services.AddMediatR(typeof(Program).Assembly);
 
