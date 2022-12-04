@@ -2,7 +2,7 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitConverter.Api", "UnitConverter.Api\UnitConverter.Api.csproj", "{D474272A-0E95-44D1-A57D-5891269C9E10}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitConveter.Tests", "UnitConveter.Tests\UnitConveter.Tests.csproj", "{387EBA8C-F83D-4924-946A-0888C3FD585B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitConverter.Test", "UnitConverter.Test\UnitConverter.Test.csproj", "{387EBA8C-F83D-4924-946A-0888C3FD585B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
