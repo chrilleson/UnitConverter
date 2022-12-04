@@ -4,6 +4,7 @@ namespace UnitConverter.Api.Features.Services;
 
 public interface IUnitConverter<T>  where T : Enum
 {
-    Unit CreateUnitToConvertTo(Unit unitToConvertFrom);
     Unit CreateUnitToConvertFrom();
+
+    Unit CreateUnitToConvertTo(Unit unitToConvertFrom);
 }

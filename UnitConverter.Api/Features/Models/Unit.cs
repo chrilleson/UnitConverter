@@ -1,3 +1,3 @@
 ﻿namespace UnitConverter.Api.Features.Models;
 
-public record Unit(int? Values, string UnitType);
+public record Unit(double Value, string UnitType);
