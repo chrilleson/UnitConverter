@@ -41,8 +41,8 @@ public static class WeightUtility
 
         double ConvertFromMilligram(double value) => value * Math.Pow(10, -3);
         double ConvertFromHectogram(double value) => value / Math.Pow(10, -2);
-        double ConvertFromKiloGram(double value) => value / Math.Pow(10, 3);
-        double ConvertFromTon(double value) => value / Math.Pow(10, 6);
+        double ConvertFromKiloGram(double value) => value * Math.Pow(10, 3);
+        double ConvertFromTon(double value) => value * Math.Pow(10, 6);
     }
 
     public static double ConvertToHectogram(Weight unitToConvertFrom, double valueToConvert)
@@ -58,8 +58,8 @@ public static class WeightUtility
 
         double ConvertFromMilligram(double value) => value * Math.Pow(10, -5);
         double ConvertFromGram(double value) => value * Math.Pow(10, -2);
-        double ConvertFromKiloGram(double value) => value / Math.Pow(10, 1);
-        double ConvertFromTon(double value) => value / Math.Pow(10, 4);
+        double ConvertFromKiloGram(double value) => value * Math.Pow(10, 1);
+        double ConvertFromTon(double value) => value * Math.Pow(10, 4);
     }
 
     public static double ConvertToKilogram(Weight unitToConvertFrom, double valueToConvert)
@@ -76,7 +76,7 @@ public static class WeightUtility
         double ConvertFromMilligram(double value) => value * Math.Pow(10, -6);
         double ConvertFromGram(double value) => value * Math.Pow(10, -3);
         double ConvertFromHectogram(double value) => value * Math.Pow(10, -1);
-        double ConvertFromTon(double value) => value / Math.Pow(10, 3);
+        double ConvertFromTon(double value) => value * Math.Pow(10, 3);
     }
 
     public static double ConvertToTon(Weight unitToConvertFrom, double valueToConvert)
