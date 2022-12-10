@@ -1,0 +1,19 @@
+version: '3.9'
+services:
+  unit-converter-web:
+    build: ./unit-converter/
+    ports:
+      - "4201:443"
+    volumes:
+      - ./certificates:/etc/nginx/cert
+  unit-converter-api:
+    build: ./UnitConverter-Api/UnitConverter.Api/
+    ports:
+      - "5001:443"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=https://+:443
+      - ASPNETCORE_Kestrel__Certificates__Default__Password=qwerty1234
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/localhost.pfx
+    volumes:
+      - ./certificates:/https:ro

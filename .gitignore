@@ -455,3 +455,4 @@ About
 # Datasource local storage ignored files
 /dataSources/
 /dataSources.local.xml
+UnitConverter-Api/.idea/.idea.UnitConverter/.idea/
