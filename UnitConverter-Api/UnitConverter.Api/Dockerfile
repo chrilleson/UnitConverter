@@ -5,10 +5,10 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-COPY ["UnitConverter.Api/UnitConverter.Api.csproj", "UnitConverter.Api/"]
-RUN dotnet restore "UnitConverter.Api/UnitConverter.Api.csproj"
+COPY ["UnitConverter.Api.csproj", "./"]
+RUN dotnet restore "UnitConverter.Api.csproj"
 COPY . .
-WORKDIR "/src/UnitConverter.Api"
+WORKDIR "/src/"
 RUN dotnet build "UnitConverter.Api.csproj" -c Release -o /app/build
 
 FROM build AS publish
