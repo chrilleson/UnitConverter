@@ -71,6 +71,9 @@
               "browserTarget": "unit-converter:build:development"
             }
           },
+          "options":{
+            "port": 4201
+          },
           "defaultConfiguration": "development"
         },
         "extract-i18n": {
