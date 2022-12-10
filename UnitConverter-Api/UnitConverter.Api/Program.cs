@@ -38,6 +38,7 @@ app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
+app.MapGet("/", () => "Unit Converter is ready to convert some units!");
 app.MapGet("/length", async (IMediator mediator) => await mediator.Send(LengthUnitRequest.Instance));
 app.MapGet("/weight", async (IMediator mediator) => await mediator.Send(WeightUnitRequest.Instance));
 app.MapGet("/volume", async (IMediator mediator) => await mediator.Send(VolumeUnitRequest.Instance));
