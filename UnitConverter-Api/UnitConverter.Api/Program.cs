@@ -21,6 +21,13 @@ builder.Services.AddScoped(typeof(IRequest<IEnumerable<UnitModel>>), typeof(Weig
 builder.Services.AddScoped(typeof(IRequest<IEnumerable<UnitModel>>), typeof(VolumeUnitRequest));
 
 builder.Services.AddControllers();
+builder.Services.AddCors();
+builder.Services.AddHsts(options =>
+{
+    options.Preload = true;
+    options.IncludeSubDomains = true;
+    options.MaxAge = TimeSpan.FromDays(365);
+});
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -34,8 +41,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseHsts();
+app.UseCors(x => x.AllowAnyMethod().AllowAnyHeader().WithOrigins("https://localhost:4201").Build());
 app.UseHttpsRedirection();
-
 app.UseAuthorization();
 
 app.MapGet("/", () => "Unit Converter is ready to convert some units!");
