@@ -72,7 +72,10 @@
             }
           },
           "options":{
-            "port": 4201
+            "port": 4201,
+            "sslCert": "../certificates/localhost-root-ca.crt",
+            "sslKey": "../certificates/localhost.key",
+            "ssl": true
           },
           "defaultConfiguration": "development"
         },
