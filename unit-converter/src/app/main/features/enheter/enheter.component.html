@@ -1,0 +1,32 @@
+<div class="container">
+  <h1 class="mat-h1">Enheter</h1>
+  <div class="row">
+    <div class="col">
+      <div *ngFor="let unitType of unitTypes">
+        <mat-slide-toggle (change)="onToggleChanged($event.checked, unitType.unitTypeName)">
+          {{unitType.name}}
+        </mat-slide-toggle>
+      </div>
+      <button mat-raised-button (click)="onClick()">Hämta enheter att omvandla</button>
+    </div>
+    <div class="col">
+      <form (ngSubmit)="onSubmit()" [formGroup]="unitForm">
+        <ng-container>
+          <ng-container *ngFor="let unit of unitList$ | async; let i = index">
+            <div class="form-row" [formGroup]="unitForm">
+              <label for="units"> {{unit.convertFrom.value}} {{unit.convertFrom.unitType}} till </label>
+              <mat-form-field appearance="fill">                
+                <input matInput
+                  formControlName="units"
+                  id="{{i}}"
+                  autocomplete="off">
+              </mat-form-field>
+              {{unit.convertTo.unitType}}
+            </div>
+          </ng-container>
+        </ng-container>
+        <button type="submit" mat-raised-button>Rätta!</button>
+      </form>
+    </div>
+  </div>
+</div>

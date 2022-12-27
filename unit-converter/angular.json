@@ -23,10 +23,13 @@
               "src/assets"
             ],
             "styles": [
-              "./node_modules/@angular/material/prebuilt-themes/purple-green.css",
+              "./node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css",
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -72,7 +75,10 @@
             }
           },
           "options":{
-            "port": 4201
+            "port": 4201,
+            "sslCert": "../certificates/localhost-root-ca.crt",
+            "sslKey": "../certificates/localhost.key",
+            "ssl": true
           },
           "defaultConfiguration": "development"
         },
