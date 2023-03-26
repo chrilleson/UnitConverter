@@ -1,12 +1,18 @@
 version: '3.9'
 services:
-  unit-converter-web:
+  web-angluar:
     build: ./unit-converter/
     ports:
       - "4201:443"
     volumes:
       - ./certificates:/etc/nginx/cert
-  unit-converter-api:
+  web-react:
+    build: ./unit-converter-web/
+    ports:
+      - "3000:443"
+    volumes:
+      - ./certificates:/etc/nginx/cert
+  api:
     build: ./UnitConverter-Api/UnitConverter.Api/
     ports:
       - "5001:443"
