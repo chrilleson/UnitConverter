@@ -13,7 +13,7 @@ services:
     volumes:
       - ./certificates:/etc/nginx/cert
   api:
-    build: ./UnitConverter-Api/UnitConverter.Api/
+    build: ./unit-converter-api/UnitConverter.Api/
     ports:
       - "5001:443"
     environment:
