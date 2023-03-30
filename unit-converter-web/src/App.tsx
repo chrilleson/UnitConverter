@@ -1,22 +1,24 @@
 import './styles/App.scss';
 
+import { CssBaseline, ThemeProvider, createTheme } from '@mui/material';
+
+import { Header } from './components/header/header';
+import { Main } from './components/main';
+import { svSE } from '@mui/material/locale';
+
+const darkTheme = createTheme({
+  palette: {
+    mode: 'dark',
+  },  
+}, svSE);
+
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={darkTheme}>
+      <CssBaseline />
+      <Header />
+      <Main />
+    </ThemeProvider>
   );
 }
 
