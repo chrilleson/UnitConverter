@@ -1,23 +1,31 @@
 import './styles/App.scss';
 
-import { CssBaseline, ThemeProvider, createTheme } from '@mui/material';
+import { CssBaseline, ThemeProvider, createTheme, useMediaQuery } from '@mui/material';
 
 import { Header } from './components/header/header';
 import { Main } from './components/main';
 import { svSE } from '@mui/material/locale';
-
-const darkTheme = createTheme({
-  palette: {
-    mode: 'dark',
-  },  
-}, svSE);
+import { useMemo } from 'react';
 
 function App() {
+
+  const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
+
+  const theme = useMemo(
+    () =>
+      createTheme({
+        palette: {
+          mode: prefersDarkMode ? 'dark' : 'light',
+        },
+      }, svSE),
+    [prefersDarkMode],
+  );
+
   return (
-    <ThemeProvider theme={darkTheme}>
+    <ThemeProvider theme={theme}>
       <CssBaseline />
       <Header />
-      <Main />
+      <Main />      
     </ThemeProvider>
   );
 }
