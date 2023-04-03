@@ -1,6 +1,6 @@
 import './styles/App.scss';
 
-import { CssBaseline, ThemeProvider, createTheme } from '@mui/material';
+import { Box, CssBaseline, ThemeProvider, createTheme } from '@mui/material';
 
 import { AppContextProvider } from './contexts/app-context';
 import { Header } from './components/header/header';
@@ -24,9 +24,11 @@ function App() {
   return (
     <AppContextProvider>
       <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <Header />
-        <Main />
+        <Box sx={{ display: 'flex' }}>
+          <CssBaseline />
+          <Header />
+          <Main />
+        </Box>        
       </ThemeProvider>
     </AppContextProvider>    
   );
