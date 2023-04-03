@@ -2,14 +2,19 @@ import './styles/index.scss';
 
 import App from './App';
 import { StrictMode } from 'react';
+import { UiContextProvider } from './contexts/ui-context';
 import { createRoot } from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
 
 const container = document.getElementById('root');
 const root = createRoot(container!);
+
+
 root.render(
   <StrictMode>
-    <App />
+    <UiContextProvider>
+      <App />
+    </UiContextProvider>
   </StrictMode>
 );
 

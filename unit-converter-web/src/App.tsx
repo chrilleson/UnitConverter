@@ -1,24 +1,36 @@
 import './styles/App.scss';
 
-import { CssBaseline, ThemeProvider, createTheme } from '@mui/material';
+import { Box, CssBaseline, ThemeProvider, createTheme } from '@mui/material';
 
+import { AppContextProvider } from './contexts/app-context';
 import { Header } from './components/header/header';
 import { Main } from './components/main';
 import { svSE } from '@mui/material/locale';
-
-const darkTheme = createTheme({
-  palette: {
-    mode: 'dark',
-  },  
-}, svSE);
+import { useMemo } from 'react';
+import { useUiContext } from './contexts/ui-context';
 
 function App() {
+  const uiContext = useUiContext();
+  const theme = useMemo(
+    () =>
+      createTheme({
+        palette: {
+          mode: uiContext.state.theme,
+        },
+      }, svSE),
+    [uiContext.state.theme],
+  );
+
   return (
-    <ThemeProvider theme={darkTheme}>
-      <CssBaseline />
-      <Header />
-      <Main />
-    </ThemeProvider>
+    <AppContextProvider>
+      <ThemeProvider theme={theme}>
+        <Box sx={{ display: 'flex' }}>
+          <CssBaseline />
+          <Header />
+          <Main />
+        </Box>        
+      </ThemeProvider>
+    </AppContextProvider>    
   );
 }
 

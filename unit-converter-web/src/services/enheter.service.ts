@@ -1,7 +1,7 @@
 const unitTypes = [
-  'Längd',
-  'Vikt',
-  'Volym'
+  { name: 'Längd📏', unitTypeName: 'length' },
+  { name: 'Vikt🪨', unitTypeName: 'weight' },
+  { name: 'Volym🧪', unitTypeName: 'volume' },
 ]
 
 class EnheterService {
