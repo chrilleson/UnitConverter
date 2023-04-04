@@ -1,16 +1,31 @@
-import Alert from "@mui/material/Alert";
+import MuiAlert, { AlertProps } from '@mui/material/Alert';
+
 import Snackbar from "@mui/material/Snackbar"
-import { useAppContext } from "../../contexts/app-context";
+import { forwardRef } from "react";
+import { useUiContext } from "../../contexts/ui-context";
 
 export const ErrorSnackbar = (props: {openDialog: boolean, message: string}) => {
   const { openDialog, message } = props;
-  const appContext = useAppContext();
+  const uiContext = useUiContext();
+
+  const Alert = forwardRef<HTMLDivElement, AlertProps>(function Alert(
+    props,
+    ref,
+  ) {
+    return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+  });
+
+  const handleOnClose = () => {
+    uiContext.dispatch({
+      type:'CLEAR_ERROR'
+    });
+  }
 
   return (
     <Snackbar
         open={openDialog}
         autoHideDuration={6000}
-        onClose={appContext.dispatch({type: 'CLEAR_ERROR'})}        
+        onClose={handleOnClose}     
       >
         <Alert severity="error">{message}</Alert>
       </Snackbar>
