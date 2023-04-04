@@ -42,7 +42,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHsts();
-app.UseCors(x => x.AllowAnyMethod().AllowAnyHeader().WithOrigins("https://localhost:4201").Build());
+app.UseCors(x => x.AllowAnyMethod().AllowAnyHeader().WithOrigins("https://localhost:3000", "https://localhost:4201").Build());
 app.UseHttpsRedirection();
 app.UseAuthorization();
 
