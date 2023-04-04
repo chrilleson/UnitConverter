@@ -21,17 +21,37 @@ export const useUiContext = () => {
 };
 
 const initialState = {
+  error: { openDialog: false, message: '' },
   theme: 'light'
 }
 
 const uiReducer = (state: any, action: any) =>{
-  const { theme} = state;
+  const { error, theme } = state;
 
   return {
+    error: errorReducer(error, action),
     theme: themeReducer(theme, action)
   }
 }
 
+const errorReducer = (state: any, action: any) => {
+  switch (action.type){
+    case 'SHOW_ERROR': {
+      return {
+        openDialog: action.error.openDialog,
+        message: action.error.message
+      }
+    }
+    case 'CLEAR_ERROR': {
+      return {
+        openDialog: false,
+        message: ''
+      }
+    }
+    default:
+      return state;
+  }
+};
 
 const themeReducer = (state: any, action: any) => {
   switch(action.type){

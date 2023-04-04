@@ -5,12 +5,15 @@ import { Box, CssBaseline, ThemeProvider, createTheme } from '@mui/material';
 import { AppContextProvider } from './contexts/app-context';
 import { Header } from './components/header/header';
 import { Main } from './components/main';
+import axios from 'axios';
+import { setupAxios } from './services/http.service';
 import { svSE } from '@mui/material/locale';
 import { useMemo } from 'react';
 import { useUiContext } from './contexts/ui-context';
 
 function App() {
   const uiContext = useUiContext();
+  setupAxios(axios, uiContext)
   const theme = useMemo(
     () =>
       createTheme({
@@ -28,7 +31,7 @@ function App() {
           <CssBaseline />
           <Header />
           <Main />
-        </Box>        
+        </Box>
       </ThemeProvider>
     </AppContextProvider>    
   );
