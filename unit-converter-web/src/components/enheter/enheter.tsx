@@ -46,8 +46,6 @@ export const Enheter = () => {
       }
     });
 
-    console.log(units);
-    
     appContext.dispatch({
       type: 'ADD_UNITS',
       units: units
