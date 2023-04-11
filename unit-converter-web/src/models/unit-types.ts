@@ -8,6 +8,6 @@ export interface UnitModel {
 }
 
 export interface Unit {
-  value: Number;
+  value?: Number;
   unitType: string;  
 }
